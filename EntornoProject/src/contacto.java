@@ -13,7 +13,7 @@ public class contacto {
     private String notas;
     private String sitioWeb;
     
-    public contacto(String nombreContacto, String alias, int numTelefono, String correoElectronico, String tipoContacto,
+    public contacto(String nombreContacto, String alias, long numTelefono, String correoElectronico, String tipoContacto,
             String infoTrabajo, LocalDate fechasImportantes, String relaciones, String notas, String sitioWeb) {
         setNombreContacto(nombreContacto);
         setAlias(alias);
