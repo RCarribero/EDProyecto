@@ -4,7 +4,7 @@ public class contacto {
 
     private String nombreContacto;
     private String alias;
-    private Long numTelefono;
+    private String numTelefono;
     private String correoElectronico;
     private String tipoContacto;
     private String infoTrabajo;
@@ -13,7 +13,7 @@ public class contacto {
     private String notas;
     private String sitioWeb;
     
-    public contacto(String nombreContacto, String alias, int numTelefono, String correoElectronico, String tipoContacto,
+    public contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, String tipoContacto,
             String infoTrabajo, LocalDate fechasImportantes, String relaciones, String notas, String sitioWeb) {
         setNombreContacto(nombreContacto);
         setAlias(alias);
@@ -40,15 +40,27 @@ public class contacto {
     }
 
     public void setAlias(String alias) {
-        this.alias = alias;
+        if(alias.matches("^{3,50}$")){
+            this.alias = alias;
+        }else{
+            throw new IllegalArgumentException("has puesto un alias con menos de 3 letras");
+        }
+        
+        
     }
 
-    public long getNumTelefono() {
+    public String getNumTelefono() {
         return numTelefono;
     }
 
-    public void setNumTelefono(long numTelefono) {
-        this.numTelefono = numTelefono;
+    public void setNumTelefono(String numTelefono) {
+        if(numTelefono.matches("^[0-9]{9}")){
+            this.numTelefono = numTelefono;
+        }else{
+            throw new IllegalArgumentException("has puesto un numero de telefono no valido, tiene que tener 9 caracteres");
+        }
+        
+        
     }
 
     public String getCorreoElectronico() {
