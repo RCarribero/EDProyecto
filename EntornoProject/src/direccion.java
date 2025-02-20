@@ -24,10 +24,10 @@ public String getAvenida() {
     return Avenida;
 }
 public void setAvenida(String avenida) {
-    if(avenida.matches("^\\[A-Za-z]$")){
+    if(avenida.matches("^\\[A-Za-z]{3,100}$")){
         Avenida = avenida;
     }else{
-        throw new IllegalArgumentException("la avenida contiene caracteres que no tienes que contener");
+        throw new IllegalArgumentException("la avenida contiene caracteres invalidos");
     }
     
     
