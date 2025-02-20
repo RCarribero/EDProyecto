@@ -5,9 +5,9 @@ private String Pueblo_Ciudad;
 public direccion() {
 }
 public direccion(int numero_puerta, String avenida, String pueblo_Ciudad) {
-    Numero_puerta = numero_puerta;
-    Avenida = avenida;
-    Pueblo_Ciudad = pueblo_Ciudad;
+    setNumero_puerta(numero_puerta);
+    setAvenida(avenida);
+    setPueblo_Ciudad(pueblo_Ciudad);
 }
 public int getNumero_puerta() {
     return Numero_puerta;
@@ -24,13 +24,23 @@ public String getAvenida() {
     return Avenida;
 }
 public void setAvenida(String avenida) {
-    Avenida = avenida;
+    if(avenida.matches("^\\[A-Za-z]$")){
+        Avenida = avenida;
+    }else{
+        throw new IllegalArgumentException("la avenida contiene caracteres que no tienes que contener");
+    }
+    
+    
 }
 public String getPueblo_Ciudad() {
     return Pueblo_Ciudad;
 }
 public void setPueblo_Ciudad(String pueblo_Ciudad) {
-    Pueblo_Ciudad = pueblo_Ciudad;
+    if(pueblo_Ciudad.matches("^\\[A-Za-z]")){
+        Pueblo_Ciudad = pueblo_Ciudad;
+    }else{
+        throw new IllegalArgumentException("El nombre del pueblo o de la cuidad contiene caracteres que no tiene que contener");
+    }
 }
 
 }
