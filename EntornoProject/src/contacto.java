@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class contacto {
 
@@ -43,7 +44,6 @@ public class contacto {
     public void setDireccion(direccion direccion) {
         this.direccion = direccion;
     }
-
     public String getNombreContacto() {
         return nombreContacto;
     }
@@ -71,7 +71,13 @@ public class contacto {
     }
 
     public void setNumTelefono(String numTelefono) {
-        if(numTelefono.matches("^[0-9]{9}")){
+        boolean verificacion=false;
+        if(num_telefonos.contains(numTelefono)){
+            verificacion=true;
+        }else{
+            throw new IllegalArgumentException("EL numero de telefono ya esta en uso");
+        }
+        if(numTelefono.matches("^[0-9]{9}")&&!verificacion){
             this.numTelefono = numTelefono;
         }else{
             throw new IllegalArgumentException("has puesto un numero de telefono no valido, tiene que tener 9 caracteres");
