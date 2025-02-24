@@ -5,10 +5,10 @@ public class datosTrabajo {
     private String numeroEmpleado;
     private String correoEmpleado;
     //CONSTRUCTOR VACIO
-    public datosTrabajo() {
+    datosTrabajo() {
     }
     //CONSTRUCTOR LLENO
-    public datosTrabajo(direccion direccionEmpresa, String correoEmpresa, String numeroEmpresa, String numeroEmpleado,
+    datosTrabajo(direccion direccionEmpresa, String correoEmpresa, String numeroEmpresa, String numeroEmpleado,
             String correoEmpleado) {
         this.direccionEmpresa = direccionEmpresa;
         this.correoEmpresa = correoEmpresa;
@@ -16,34 +16,34 @@ public class datosTrabajo {
         this.numeroEmpleado = numeroEmpleado;
         this.correoEmpleado = correoEmpleado;
     }
-    public direccion getDireccionEmpresa() {
+    direccion getDireccionEmpresa() {
         return direccionEmpresa;
     }
-    public void setDireccionEmpresa(direccion direccionEmpresa) {
+    void setDireccionEmpresa(direccion direccionEmpresa) {
         this.direccionEmpresa = direccionEmpresa;
     }
-    public String getCorreoEmpresa() {
+    String getCorreoEmpresa() {
         return correoEmpresa;
     }
-    public void setCorreoEmpresa(String correoEmpresa) {
+    void setCorreoEmpresa(String correoEmpresa) {
         this.correoEmpresa = correoEmpresa;
     }
-    public String getNumeroEmpresa() {
+    String getNumeroEmpresa() {
         return numeroEmpresa;
     }
-    public void setNumeroEmpresa(String numeroEmpresa) {
+    void setNumeroEmpresa(String numeroEmpresa) {
         this.numeroEmpresa = numeroEmpresa;
     }
-    public String getNumeroEmpleado() {
+    String getNumeroEmpleado() {
         return numeroEmpleado;
     }
-    public void setNumeroEmpleado(String numeroEmpleado) {
+    void setNumeroEmpleado(String numeroEmpleado) {
         this.numeroEmpleado = numeroEmpleado;
     }
-    public String getCorreoEmpleado() {
+    String getCorreoEmpleado() {
         return correoEmpleado;
     }
-    public void setCorreoEmpleado(String correoEmpleado) {
+    void setCorreoEmpleado(String correoEmpleado) {
         this.correoEmpleado = correoEmpleado;
     }
     
