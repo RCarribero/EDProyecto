@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class contacto {
 
@@ -12,9 +13,16 @@ public class contacto {
     private String relaciones;//padres,amigos(otros contactos)
     private String notas;
     private String sitioWeb;
-    
-    public contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, String tipoContacto,
-            String infoTrabajo, LocalDate fechasImportantes, String relaciones, String notas, String sitioWeb) {
+    private ArrayList<String> num_telefonos = new ArrayList<>();
+    direccion dir = new direccion();
+
+    public contacto() {
+    }
+
+
+
+    public contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, String tipoContacto, String infoTrabajo, LocalDate fechasImportantes, String relaciones, String notas,
+    String sitioWeb, ArrayList<String> num_telefonos, direccion dir) {
         setNombreContacto(nombreContacto);
         setAlias(alias);
         setNumTelefono(numTelefono);
@@ -25,8 +33,8 @@ public class contacto {
         setRelaciones(relaciones);
         setNotas(notas);
         setSitioWeb(sitioWeb);
+        this.dir = dir;
     }
-
     public String getNombreContacto() {
         return nombreContacto;
     }
@@ -54,7 +62,13 @@ public class contacto {
     }
 
     public void setNumTelefono(String numTelefono) {
-        if(numTelefono.matches("^[0-9]{9}")){
+        boolean verificacion=false;
+        if(num_telefonos.contains(numTelefono)){
+            verificacion=true;
+        }else{
+            throw new IllegalArgumentException("EL numero de telefono ya esta en uso");
+        }
+        if(numTelefono.matches("^[0-9]{9}")&&!verificacion){
             this.numTelefono = numTelefono;
         }else{
             throw new IllegalArgumentException("has puesto un numero de telefono no valido, tiene que tener 9 caracteres");
