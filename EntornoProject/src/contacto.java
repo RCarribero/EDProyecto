@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class contacto {
 
@@ -14,6 +15,7 @@ public class contacto {
     private String sitioWeb;
     private direccion direccion;
     private datosTrabajo datosTrabajo;
+    private static List<String> telefonoList =new ArrayList<>();
     
     public contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, String tipoContacto, LocalDate fechasImportantes, String relaciones, datosTrabajo datosTrabajo, String notas, String sitioWeb, direccion direccion) {
         setNombreContacto(nombreContacto);
@@ -72,7 +74,7 @@ public class contacto {
 
     public void setNumTelefono(String numTelefono) {
         boolean verificacion=false;
-        if(num_telefonos.contains(numTelefono)){
+        if(telefonoList.contains(numTelefono)){
             verificacion=true;
         }else{
             throw new IllegalArgumentException("EL numero de telefono ya esta en uso");
