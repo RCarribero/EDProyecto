@@ -9,10 +9,10 @@ public direccion(int numero_puerta, String avenida, String pueblo_Ciudad) {
     setAvenida(avenida);
     setPueblo_Ciudad(pueblo_Ciudad);
 }
-public int getNumero_puerta() {
+int getNumero_puerta() {
     return Numero_puerta;
 }
-public void setNumero_puerta(int numero_puerta) {
+void setNumero_puerta(int numero_puerta) {
     if(numero_puerta>0 && numero_puerta<100){
         Numero_puerta = numero_puerta;
     }else{
@@ -20,10 +20,10 @@ public void setNumero_puerta(int numero_puerta) {
     }
     
 }
-public String getAvenida() {
+String getAvenida() {
     return Avenida;
 }
-public void setAvenida(String avenida) {
+void setAvenida(String avenida) {
     if(avenida.matches("^\\[A-Za-z]{3,100}$")){
         Avenida = avenida;
     }else{
@@ -32,10 +32,10 @@ public void setAvenida(String avenida) {
     
     
 }
-public String getPueblo_Ciudad() {
+String getPueblo_Ciudad() {
     return Pueblo_Ciudad;
 }
-public void setPueblo_Ciudad(String pueblo_Ciudad) {
+void setPueblo_Ciudad(String pueblo_Ciudad) {
     if(pueblo_Ciudad.matches("^\\[A-Za-z]")){
         Pueblo_Ciudad = pueblo_Ciudad;
     }else{

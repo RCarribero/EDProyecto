@@ -13,7 +13,7 @@ public class contacto {
     private datosTrabajo datosTrabajo;
     private static List<String> telefonoList =new ArrayList<>();
     
-    public contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, LocalDate fechasImportantes, datosTrabajo datosTrabajo, direccion direccion) {
+    contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, LocalDate fechasImportantes, datosTrabajo datosTrabajo, direccion direccion) {
         setNombreContacto(nombreContacto);
         setAlias(alias);
         setNumTelefono(numTelefono);
@@ -22,38 +22,38 @@ public class contacto {
         setDireccion(direccion);
         setDatosTrabajo(datosTrabajo);
     }
-    public datosTrabajo getDatosTrabajo() {
+    datosTrabajo getDatosTrabajo() {
         return datosTrabajo;
     }
-    public void setDatosTrabajo(datosTrabajo datosTrabajo) {
+    void setDatosTrabajo(datosTrabajo datosTrabajo) {
         this.datosTrabajo = datosTrabajo;
     }
-    public direccion getDireccion() {
+    direccion getDireccion() {
         return direccion;
     }
-    public void setDireccion(direccion direccion) {
+    void setDireccion(direccion direccion) {
         this.direccion = direccion;
     }
-    public String getNombreContacto() {
+    String getNombreContacto() {
         return nombreContacto;
     }
-    public void setNombreContacto(String nombreContacto) {
+    void setNombreContacto(String nombreContacto) {
         this.nombreContacto = nombreContacto;
     }
-    public String getAlias() {
+    String getAlias() {
         return alias;
     }
-    public void setAlias(String alias) {
+    void setAlias(String alias) {
         if(alias.matches("^{3,50}$")){
             this.alias = alias;
         }else{
             throw new IllegalArgumentException("has puesto un alias con menos de 3 letras");
         }
     }
-    public String getNumTelefono() {
+    String getNumTelefono() {
         return numTelefono;
     }
-    public void setNumTelefono(String numTelefono) {
+    void setNumTelefono(String numTelefono) {
         boolean verificacion=false;
         if(telefonoList.contains(numTelefono)){
             verificacion=true;
@@ -66,17 +66,17 @@ public class contacto {
             throw new IllegalArgumentException("has puesto un numero de telefono no valido, tiene que tener 9 caracteres");
         }
     }
-    public String getCorreoElectronico() {
+    String getCorreoElectronico() {
         return correoElectronico;
     }
-    public void setCorreoElectronico(String correoElectronico) {
+    void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
     }
-    public LocalDate getFechasImportantes() {
+    LocalDate getFechasImportantes() {
         return fechasImportantes;
     }
 
-    public void setFechasImportantes(LocalDate fechasImportantes) {
+    void setFechasImportantes(LocalDate fechasImportantes) {
         this.fechasImportantes = fechasImportantes;
     }    
 }
