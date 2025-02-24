@@ -13,6 +13,12 @@ public class contacto {
     private datosTrabajo datosTrabajo;
     private static List<String> telefonoList =new ArrayList<>();
     
+    @Override
+    public String toString() {
+        return "contacto [nombreContacto=" + nombreContacto + ", alias=" + alias + ", numTelefono=" + numTelefono
+                + ", correoElectronico=" + correoElectronico + ", fechasImportantes=" + fechasImportantes
+                + ", direccion=" + direccion + ", datosTrabajo=" + datosTrabajo + "]";
+    }
     contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, LocalDate fechasImportantes, datosTrabajo datosTrabajo, direccion direccion) {
         setNombreContacto(nombreContacto);
         setAlias(alias);

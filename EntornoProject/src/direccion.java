@@ -9,6 +9,11 @@ public direccion(int numero_puerta, String avenida, String pueblo_Ciudad) {
     setAvenida(avenida);
     setPueblo_Ciudad(pueblo_Ciudad);
 }
+@Override
+public String toString() {
+    return "direccion [Numero_puerta=" + Numero_puerta + ", Avenida=" + Avenida + ", Pueblo_Ciudad=" + Pueblo_Ciudad
+            + "]";
+}
 int getNumero_puerta() {
     return Numero_puerta;
 }

@@ -16,6 +16,12 @@ public class datosTrabajo {
         this.numeroEmpleado = numeroEmpleado;
         this.correoEmpleado = correoEmpleado;
     }
+    @Override
+    public String toString() {
+        return "datosTrabajo [direccionEmpresa=" + direccionEmpresa + ", correoEmpresa=" + correoEmpresa
+                + ", numeroEmpresa=" + numeroEmpresa + ", numeroEmpleado=" + numeroEmpleado + ", correoEmpleado="
+                + correoEmpleado + "]";
+    }
     direccion getDireccionEmpresa() {
         return direccionEmpresa;
     }
