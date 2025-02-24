@@ -7,24 +7,41 @@ public class contacto {
     private String numTelefono;
     private String correoElectronico;
     private String tipoContacto;
-    private String infoTrabajo;
     private LocalDate fechasImportantes;
     private String relaciones;//padres,amigos(otros contactos)
     private String notas;
     private String sitioWeb;
+    private direccion direccion;
+    private datosTrabajo datosTrabajo;
     
-    public contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, String tipoContacto,
-            String infoTrabajo, LocalDate fechasImportantes, String relaciones, String notas, String sitioWeb) {
+    public contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, String tipoContacto, LocalDate fechasImportantes, String relaciones, datosTrabajo datosTrabajo, String notas, String sitioWeb, direccion direccion) {
         setNombreContacto(nombreContacto);
         setAlias(alias);
         setNumTelefono(numTelefono);
         setCorreoElectronico(correoElectronico);
         setTipoContacto(tipoContacto);
-        setInfoTrabajo(infoTrabajo);
         setFechasImportantes(fechasImportantes);
         setRelaciones(relaciones);
         setNotas(notas);
         setSitioWeb(sitioWeb);
+        setDireccion(direccion);
+        setDatosTrabajo(datosTrabajo);
+    }
+
+    public datosTrabajo getDatosTrabajo() {
+        return datosTrabajo;
+    }
+
+    public void setDatosTrabajo(datosTrabajo datosTrabajo) {
+        this.datosTrabajo = datosTrabajo;
+    }
+
+    public direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(direccion direccion) {
+        this.direccion = direccion;
     }
 
     public String getNombreContacto() {
@@ -79,13 +96,6 @@ public class contacto {
         this.tipoContacto = tipoContacto;
     }
 
-    public String getInfoTrabajo() {
-        return infoTrabajo;
-    }
-
-    public void setInfoTrabajo(String infoTrabajo) {
-        this.infoTrabajo = infoTrabajo;
-    }
 
     public LocalDate getFechasImportantes() {
         return fechasImportantes;
