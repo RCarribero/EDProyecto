@@ -6,7 +6,7 @@ public class gestorContactos {
     static List <contacto> ListaContactos = new ArrayList<>();
     
 public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
     int opcion;
 
     do {
@@ -16,11 +16,11 @@ public static void main(String[] args) {
         System.out.println("3: Salir");
         System.out.println("*****************************");
         System.out.println("Que opcion quieres elegir");
-        opcion = scanner.nextInt();
+        opcion = input.nextInt();
 
         switch (opcion) {
             case 1:
-                crearContacto(scanner, ListaContactos);
+                crearContacto(input, ListaContactos);
                 break;
             default:
                 throw new AssertionError();
