@@ -31,8 +31,24 @@ public static void main(String[] args) {
     private static void crearDireccion(Scanner scanner, List<direccion> ListaDireccion) {
         String avenida, pueblo_ciudad;
         int numeroPuerta;
-            System.out.println("Introduce el pueblo o ciudad");
-            pueblo_ciudad = scanner.nextLine();
+        boolean datosValidos;
+            do { 
+                datosValidos = true;
+                try {
+                    System.out.println("Introduce el pueblo o ciudad");
+                    pueblo_ciudad = scanner.nextLine();
+                    System.out.println("Di la avenida");
+                    avenida = scanner.nextLine();
+                    System.out.println("Introduce el numero de puerta");
+                    numeroPuerta = scanner.nextInt();
+                    ListaDireccion.add(new direccion(numeroPuerta, avenida, pueblo_ciudad));
+                    System.out.println("Direccion guardada con exito");
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Error: " + e);
+                    datosValidos = false;
+                }
+            } while (!datosValidos);
+            
     }
 
     private static void crearContacto(Scanner scanner, List<contacto> ListaContactos) {
