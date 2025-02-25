@@ -3,7 +3,8 @@
 import java.time.LocalDate;
 import java.util.*;
 public class gestorContactos {
-    static List <contacto> ListaContactos = new ArrayList<>();
+    private static List <contacto> ListaContactos = new ArrayList<>();
+    private static List <direccion> ListaDireccion = new ArrayList<>();
     
 public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
@@ -27,7 +28,12 @@ public static void main(String[] args) {
         }
     } while (opcion != 3);
 }
-    private static
+    private static void crearDireccion(Scanner scanner, List<direccion> ListaDireccion) {
+        String avenida, pueblo_ciudad;
+        int numeroPuerta;
+            System.out.println("Introduce el pueblo o ciudad");
+            pueblo_ciudad = scanner.nextLine();
+    }
 
     private static void crearContacto(Scanner scanner, List<contacto> ListaContactos) {
         String nombreContacto, alias, numTelefono, correoElectronico;
