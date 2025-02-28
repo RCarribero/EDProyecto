@@ -5,6 +5,7 @@ import java.util.*;
 public class gestorContactos {
     private static List <contacto> ListaContactos = new ArrayList<>();
     private static List <direccion> ListaDireccion = new ArrayList<>();
+    private static List <datosTrabajo> ListaDatosT = new ArrayList<>();
     
 public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
@@ -21,6 +22,9 @@ public static void main(String[] args) {
 
         switch (opcion) {
             case 1:
+                crearDireccion(input, ListaDireccion);
+                break;
+            case 2:
                 crearContacto(input, ListaContactos);
                 break;
             default:
@@ -50,7 +54,30 @@ public static void main(String[] args) {
             } while (!datosValidos);
             
     }
-
+    private static void crearDatosTrabajo(Scanner scanner, List<datosTrabajo> ListaDatosT) {
+    direccion direccionEmpresa;
+    String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
+    boolean datosValidos;
+        do {
+            datosValidos = true;
+            try {
+                System.out.println("Introduce el correo de la empresa");
+                correoEmpresa = scanner.nextLine();
+                System.out.println("Introduce el numero de la empresa");
+                numeroEmpresa = scanner.nextLine();
+                System.out.println("Introduce el numero de empleados");
+                numeroEmpleado = scanner.nextLine();
+                System.out.println("Introduce el correo del empleado");
+                correoEmpleado = scanner.nextLine();
+                System.out.println("Introduce la direccion");
+                    
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e);
+                datosValidos = false;
+            }
+        } while (!datosValidos);
+    
+    }
     private static void crearContacto(Scanner scanner, List<contacto> ListaContactos) {
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
