@@ -36,6 +36,7 @@ public static void main(String[] args) {
     } while (opcion != 3);
 }
     private static void crearDireccion() {
+        ListaDireccion.add(new direccion());
         String avenida, pueblo_ciudad;
         int numeroPuerta;
         boolean datosValidos;
@@ -43,16 +44,40 @@ public static void main(String[] args) {
                 datosValidos = true;
                 try {
                     input.nextLine();
-                    System.out.println("Introduce el pueblo o ciudad");
-                    pueblo_ciudad = input.nextLine();
-                    System.out.println("Di la avenida");
-                    avenida = input.nextLine();
-                    System.out.println("Introduce el numero de puerta");
-                    numeroPuerta = input.nextInt();
-                    ListaDireccion.add(new direccion(numeroPuerta, avenida, pueblo_ciudad));
-                    System.out.println("Direccion guardada con exito");
-                    ListaDireccion.add(new direccion(numeroPuerta, avenida, pueblo_ciudad));
-                    System.out.println("Direccion creada con exito");
+                    do { 
+                        try {
+                            datosValidos=true;
+                            System.out.println("Introduce el pueblo o ciudad");
+                            pueblo_ciudad = input.nextLine();
+                            ListaDireccion.getLast().setPueblo_Ciudad(pueblo_ciudad);
+                        } catch (Exception e) {
+                            datosValidos=false;
+                            System.out.println(e);
+                        }
+                    } while (!datosValidos);
+                    do { 
+                        try {
+                            datosValidos=true;
+                            System.out.println("Di la avenida");
+                            avenida = input.nextLine();
+                            ListaDireccion.getLast().setAvenida(avenida);
+                        } catch (Exception e) {
+                            datosValidos=false;
+                            System.out.println(e);
+                        }
+                    } while (!datosValidos);
+                    do { 
+                        try {
+                            datosValidos=true;
+                            System.out.println("Introduce el numero de puerta");
+                            numeroPuerta = input.nextInt();
+                            ListaDireccion.getLast().setNumero_puerta(numeroPuerta);
+                        } catch (Exception e) {
+                            datosValidos=false;
+                            System.out.println(e);
+                        }
+                    } while (!datosValidos);
+                    
                 } catch (IllegalArgumentException e) {
                     System.out.println("Error: " + e);
                     datosValidos = false;
@@ -64,18 +89,66 @@ public static void main(String[] args) {
     direccion direccionEmpresa;
     String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
     boolean datosValidos;
+    ListaDatosTra.add(new datosTrabajo());
         do {
             datosValidos = true;
             try {
-                System.out.println("Introduce el correo de la empresa");
-                correoEmpresa = input.nextLine();
-                System.out.println("Introduce el numero de la empresa");
-                numeroEmpresa = input.nextLine();
-                System.out.println("Introduce el numero de empleados");
-                numeroEmpleado = input.nextLine();
-                System.out.println("Introduce el correo del empleado");
-                correoEmpleado = input.nextLine();
-                System.out.println("Introduce la direccion");
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce el correo de la empresa");
+                        correoEmpresa = input.nextLine();
+                        ListaDatosTra.getLast().setCorreoEmpresa(correoEmpresa);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                } while (!datosValidos);
+
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce el numero de la empresa");
+                        numeroEmpresa = input.nextLine();
+                        ListaDatosTra.getLast().setNumeroEmpresa(numeroEmpresa);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                } while (!datosValidos);
+
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce el numero de empleados");
+                        numeroEmpleado = input.nextLine();
+                        ListaDatosTra.getLast().setNumeroEmpleado(numeroEmpleado);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                } while (!datosValidos);
+                
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce el correo del empleado");
+                        correoEmpleado = input.nextLine();
+                        ListaDatosTra.getLast().setCorreoEmpleado(correoEmpleado);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                    do { 
+                        try {
+                            datosValidos=true;
+    
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            datosValidos=false;
+                        }
+                    } while (!datosValidos);
+                } while (!datosValidos);
                     
             } catch (IllegalArgumentException e) {
                 System.out.println("Error: " + e);
@@ -90,22 +163,77 @@ public static void main(String[] args) {
         direccion direccion;
         datosTrabajo datosTrabajo;
         boolean datosValidos;
+        ListaContactos.add(new contacto());
 
         do { 
             datosValidos = true;
             try {
                 input.nextLine();
-                System.out.println("Introduce el nombre del contacto");
-                nombreContacto = input.nextLine();
-                System.out.println("Introduce el alias");
-                alias = input.nextLine();
-                System.out.println("Introduce el numero de telefono");
-                numTelefono = input.nextLine();
-                System.out.println("Introduce el correoElectronico");
-                correoElectronico = input.nextLine();
-                System.out.println("Introduce una fecha importante");
-                fechasImportantes = input.nextLine();
-                LocalDate localDate = LocalDate.parse(fechasImportantes);
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce el nombre del contacto");
+                        nombreContacto = input.nextLine();
+                        ListaContactos.getLast().setNombreContacto(nombreContacto);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                } while (!datosValidos);
+                    
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce el alias");
+                        alias = input.nextLine();
+                        ListaContactos.getLast().setAlias(alias);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                } while (!datosValidos);
+
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce el numero de telefono");
+                        numTelefono = input.nextLine();
+                        ListaContactos.getLast().setNumTelefono(numTelefono);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                } while (!datosValidos);
+
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce el correoElectronico");
+                        correoElectronico = input.nextLine();
+                        ListaContactos.getLast().setCorreoElectronico(correoElectronico);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                } while (!datosValidos);
+
+                do { 
+                    try {
+                        datosValidos=true;
+                        System.out.println("Introduce una fecha importante");
+                        fechasImportantes = input.nextLine();
+                        LocalDate localDate = LocalDate.parse(fechasImportantes);
+                        ListaContactos.getLast().setFechasImportantes(localDate);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                        datosValidos=false;
+                    }
+                } while (!datosValidos);
+                
+                
+                
+                
+                
                 System.out.println("Elige una direccion");
                         for (int j = 0; j < ListaDireccion.size(); j++) {
                             System.out.println((j + 1) + " : " + ListaDireccion.get(j).toString());

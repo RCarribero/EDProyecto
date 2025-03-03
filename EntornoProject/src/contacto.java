@@ -28,6 +28,10 @@ public class contacto {
         setDireccion(direccion);
         setDatosTrabajo(datosTrabajo);
     }
+
+    
+    public contacto() {
+    }
     datosTrabajo getDatosTrabajo() {
         return datosTrabajo;
     }
