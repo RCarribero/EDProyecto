@@ -1,9 +1,11 @@
+
+
 public class datosTrabajo {
-    private direccion direccionEmpresa;
-    private String correoEmpresa;
-    private String numeroEmpresa;
-    private String numeroEmpleado;
-    private String correoEmpleado;
+    private direccion direccionEmpresa;//EMP-8888
+    private String correoEmpresa;//x@x.x
+    private String numeroEmpresa;//666666666
+    private String numeroEmpleado;//666666666
+    private String correoEmpleado;//x@x.x
     //CONSTRUCTOR VACIO
     datosTrabajo() {
     }
@@ -16,41 +18,62 @@ public class datosTrabajo {
         this.numeroEmpleado = numeroEmpleado;
         this.correoEmpleado = correoEmpleado;
     }
-    @Override
-    public String toString() {
-        return "datosTrabajo [direccionEmpresa=" + direccionEmpresa + ", correoEmpresa=" + correoEmpresa
-                + ", numeroEmpresa=" + numeroEmpresa + ", numeroEmpleado=" + numeroEmpleado + ", correoEmpleado="
-                + correoEmpleado + "]";
-    }
     direccion getDireccionEmpresa() {
         return direccionEmpresa;
     }
     void setDireccionEmpresa(direccion direccionEmpresa) {
         this.direccionEmpresa = direccionEmpresa;
+        //VALIDACION EN SU CLASE
     }
     String getCorreoEmpresa() {
         return correoEmpresa;
     }
     void setCorreoEmpresa(String correoEmpresa) {
         this.correoEmpresa = correoEmpresa;
+        if(correoEmpresa.matches("^[a-zA-Z]@[a-zA-Z].[a-z]$")){
+            System.out.println("Formato del correo de empresa correcto");
+        }else{
+            throw new IllegalArgumentException("Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
+        }
     }
     String getNumeroEmpresa() {
         return numeroEmpresa;
     }
     void setNumeroEmpresa(String numeroEmpresa) {
         this.numeroEmpresa = numeroEmpresa;
+        if(numeroEmpresa.matches("\\d{9}")){
+            System.out.println("Formato del Numero del empleado correcto");
+        }else{
+            throw new IllegalArgumentException("Formato del Numero del empleado incorrecto, debe ser(666666666)");
+        }
     }
     String getNumeroEmpleado() {
         return numeroEmpleado;
     }
     void setNumeroEmpleado(String numeroEmpleado) {
         this.numeroEmpleado = numeroEmpleado;
+        if(numeroEmpleado.matches("\\d{9}")){
+            System.out.println("Formato del Numero del empleado correcto");
+        }else{
+            throw new IllegalArgumentException("Formato del Numero del empleado incorrecto, debe ser(666666666)");
+        }
     }
     String getCorreoEmpleado() {
         return correoEmpleado;
     }
     void setCorreoEmpleado(String correoEmpleado) {
         this.correoEmpleado = correoEmpleado;
+        //MAL
+        if(correoEmpleado.matches("^[a-zA-Z]@[a-zA-Z].[a-z]$")){
+            System.out.println("Formato de Correo empleado correo");
+        }else{
+            throw new IllegalArgumentException("Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
+        }
     }
-    
+    @Override
+    public String toString() {
+        return "datosTrabajo [direccionEmpresa=" + direccionEmpresa + ", correoEmpresa=" + correoEmpresa
+                + ", numeroEmpresa=" + numeroEmpresa + ", numeroEmpleado=" + numeroEmpleado + ", correoEmpleado="
+                + correoEmpleado + "]";
+    }
 }
