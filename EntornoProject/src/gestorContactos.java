@@ -3,13 +3,13 @@
 import java.time.LocalDate;
 import java.util.*;
 public class gestorContactos {
-    private static List <contacto> ListaContactos = new ArrayList<>();
-    private static List <direccion> ListaDireccion = new ArrayList<>();
-    private static List <datosTrabajo> ListaDatosTra = new ArrayList<>();
+    static List <contacto> ListaContactos = new ArrayList<>();
+    static List <direccion> ListaDireccion = new ArrayList<>();
+    static List <datosTrabajo> ListaDatosTra = new ArrayList<>();
+    static Scanner input = new Scanner(System.in);
+    static int opcion;
     
 public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-    int opcion;
 
     do {
         System.out.println("1: Crear direccion");
@@ -23,32 +23,32 @@ public static void main(String[] args) {
 
         switch (opcion) {
             case 1:
-                crearDireccion(input, ListaDireccion);
+                crearDireccion();
                 break;
             case 2:
-                crearDatosTrabajo(input, ListaDatosTra);
+                crearDatosTrabajo();
             break;
             case 3:
-                crearContacto(input, ListaContactos, ListaDireccion, ListaDatosTra);
+                crearContacto();
             default:
                 throw new AssertionError();
         }
     } while (opcion != 3);
 }
-    private static void crearDireccion(Scanner scanner, List<direccion> ListaDireccion) {
+    private static void crearDireccion() {
         String avenida, pueblo_ciudad;
         int numeroPuerta;
         boolean datosValidos;
             do { 
                 datosValidos = true;
                 try {
-                    scanner.nextLine();
+                    input.nextLine();
                     System.out.println("Introduce el pueblo o ciudad");
-                    pueblo_ciudad = scanner.nextLine();
+                    pueblo_ciudad = input.nextLine();
                     System.out.println("Di la avenida");
-                    avenida = scanner.nextLine();
+                    avenida = input.nextLine();
                     System.out.println("Introduce el numero de puerta");
-                    numeroPuerta = scanner.nextInt();
+                    numeroPuerta = input.nextInt();
                     ListaDireccion.add(new direccion(numeroPuerta, avenida, pueblo_ciudad));
                     System.out.println("Direccion guardada con exito");
                     ListaDireccion.add(new direccion(numeroPuerta, avenida, pueblo_ciudad));
@@ -60,7 +60,7 @@ public static void main(String[] args) {
             } while (!datosValidos);
             
     }
-    private static void crearDatosTrabajo(Scanner scanner, List<datosTrabajo> ListaDatosT) {
+    private static void crearDatosTrabajo() {
     direccion direccionEmpresa;
     String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
     boolean datosValidos;
@@ -68,13 +68,13 @@ public static void main(String[] args) {
             datosValidos = true;
             try {
                 System.out.println("Introduce el correo de la empresa");
-                correoEmpresa = scanner.nextLine();
+                correoEmpresa = input.nextLine();
                 System.out.println("Introduce el numero de la empresa");
-                numeroEmpresa = scanner.nextLine();
+                numeroEmpresa = input.nextLine();
                 System.out.println("Introduce el numero de empleados");
-                numeroEmpleado = scanner.nextLine();
+                numeroEmpleado = input.nextLine();
                 System.out.println("Introduce el correo del empleado");
-                correoEmpleado = scanner.nextLine();
+                correoEmpleado = input.nextLine();
                 System.out.println("Introduce la direccion");
                     
             } catch (IllegalArgumentException e) {
@@ -84,7 +84,7 @@ public static void main(String[] args) {
         } while (!datosValidos);
     
     }
-    private static void crearContacto(Scanner scanner, List<contacto> ListaContactos, List<direccion> listaDireccion, List<datosTrabajo> listaDatosTra) {
+    private static void crearContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
         direccion direccion;
@@ -94,25 +94,25 @@ public static void main(String[] args) {
         do { 
             datosValidos = true;
             try {
-                scanner.nextLine();
+                input.nextLine();
                 System.out.println("Introduce el nombre del contacto");
-                nombreContacto = scanner.nextLine();
+                nombreContacto = input.nextLine();
                 System.out.println("Introduce el alias");
-                alias = scanner.nextLine();
+                alias = input.nextLine();
                 System.out.println("Introduce el numero de telefono");
-                numTelefono = scanner.nextLine();
+                numTelefono = input.nextLine();
                 System.out.println("Introduce el correoElectronico");
-                correoElectronico = scanner.nextLine();
+                correoElectronico = input.nextLine();
                 System.out.println("Introduce una fecha importante");
-                fechasImportantes = scanner.nextLine();
+                fechasImportantes = input.nextLine();
                 LocalDate localDate = LocalDate.parse(fechasImportantes);
                 System.out.println("Elige una direccion");
                         for (int j = 0; j < ListaDireccion.size(); j++) {
                             System.out.println((j + 1) + " : " + ListaDireccion.get(j).toString());
                         }
                         System.out.println("Numero de la direccion");
-                        int numDir = scanner.nextInt();
-                        scanner.nextLine();
+                        int numDir = input.nextInt();
+                        input.nextLine();
                         if (numDir < 1 || numDir > ListaDireccion.size()) {
                             throw new IllegalArgumentException("Debe de estar dentro del rango");
                         }
@@ -122,7 +122,7 @@ public static void main(String[] args) {
                             System.out.println((1 + i) + " : " + ListaDatosTra.get(i).toString());
                         }
                         System.out.println("Numero de los datos");
-                        int numDat = scanner.nextInt();
+                        int numDat = input.nextInt();
                         if (numDat < 1 || numDat > ListaDatosTra.size()) {
                             throw new IllegalArgumentException("Debe de estar dentro del rango");
                         }
