@@ -12,15 +12,7 @@ public class gestorContactos {
 public static void main(String[] args) {
 
     do {
-        System.out.println("1: Crear direccion");
-        System.out.println("2: Crear datos de trabajo");
-        System.out.println("3: Crear nuevo contacto");
-        System.out.println("2: Modificar contacto");
-        System.out.println("3: Salir");
-        System.out.println("*****************************");
-        System.out.println("Que opcion quieres elegir");
-        opcion = input.nextInt();
-
+        menu();
         switch (opcion) {
             case 1:
                 crearDireccion();
@@ -30,11 +22,28 @@ public static void main(String[] args) {
             break;
             case 3:
                 crearContacto();
+            break;
+            case 4:
+                crearContacto();
+            break;
+            case 5:
+                System.out.println("Gracias por usar nuestro programa");;
+            break;
             default:
                 throw new AssertionError();
         }
-    } while (opcion != 3);
+    } while (opcion != 5);
 }
+    private static void menu(){
+        System.out.println("1: Crear direccion");
+        System.out.println("2: Crear datos de trabajo");
+        System.out.println("3: Crear nuevo contacto");
+        System.out.println("4: Modificar contacto");
+        System.out.println("5: Salir");
+        System.out.println("*****************************");
+        System.out.println("Que opcion quieres elegir");
+        opcion = input.nextInt();
+    }
     private static void crearDireccion() {
         ListaDireccion.add(new direccion());
         String avenida, pueblo_ciudad;
