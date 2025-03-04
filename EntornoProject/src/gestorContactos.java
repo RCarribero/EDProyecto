@@ -2,17 +2,22 @@
 
 import java.time.LocalDate;
 import java.util.*;
+import java.io.IOException;
 
 public class gestorContactos {
     static List<contacto> ListaContactos = new ArrayList<>();
     static List<direccion> ListaDireccion = new ArrayList<>();
     static List<datosTrabajo> ListaDatosTra = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
-    static int opcion;
+    static int opcion,Numero_puerta;
+    static String Avenida,Pueblo_Ciudad,correoEmpresa,numeroEmpresa,numeroEmpleado,correoEmpleado;
+    static String nombreContacto,alias,numTelefono,correoElectronico;
+    static LocalDate fechasImportantes;
 
     public static void main(String[] args) {
-
+        inicializarDatosPredeterminados();
         do {
+            clear();
             menu();
             switch (opcion) {
                 case 1:
@@ -36,22 +41,45 @@ public class gestorContactos {
         } while (opcion != 5);
     }
 
+    public static void inicializarDatosPredeterminados() {
+        // Agregar direcciones predeterminadas
+        ListaDireccion.add(new direccion(101,"Avenida Principal", "Ciudad Ejemplo"));
+        ListaDireccion.add(new direccion(202,"Calle Secundaria", "Pueblo Demo"));
+    
+        // Agregar datos de trabajo predeterminados
+        ListaDatosTra.add(new datosTrabajo("empresa@ejemplo.com", "123456789", "50", "empleado@ejemplo.com"));
+        ListaDatosTra.add(new datosTrabajo("negocio@demo.com", "987654321", "100", "trabajador@demo.com"));
+    
+        // Agregar contactos predeterminados
+        ListaContactos.add(new contacto("Juan Pérez", "JP", "111222333", "juan@example.com", LocalDate.of(1990, 5, 15)));
+        ListaContactos.add(new contacto("María López", "ML", "444555666", "maria@example.com", LocalDate.of(1985, 10, 20)));
+    }
+    
+
+    public static void clear() {
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void modificarContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
-        boolean datosValidos=true;
-        contacto contacto2= new contacto();
+        boolean datosValidos = true;
+        contacto contacto2 = new contacto();
         for (contacto contacto : ListaContactos) {
             System.out.println(contacto);
         }
         System.out.println("Dime el numero del contacto que quieres modificar");
-        String numTelf=input.nextLine();
+        String numTelf = input.nextLine();
         for (contacto contacto : ListaContactos) {
             if (numTelf.equalsIgnoreCase(contacto.getNumTelefono())) {
-                contacto2=contacto;
+                contacto2 = contacto;
             }
         }
-        
+
         do {
             datosValidos = true;
             try {
@@ -283,7 +311,7 @@ public class gestorContactos {
     private static void crearContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
-        boolean datosValidos=true;
+        boolean datosValidos = true;
         ListaContactos.add(new contacto());
 
         do {

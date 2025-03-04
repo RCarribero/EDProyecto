@@ -10,14 +10,14 @@ public class datosTrabajo {
     datosTrabajo() {
     }
     //CONSTRUCTOR LLENO
-    datosTrabajo(direccion direccionEmpresa, String correoEmpresa, String numeroEmpresa, String numeroEmpleado,
+    datosTrabajo(String correoEmpresa, String numeroEmpresa, String numeroEmpleado,
             String correoEmpleado) {
-        this.direccionEmpresa = direccionEmpresa;
-        this.correoEmpresa = correoEmpresa;
-        this.numeroEmpresa = numeroEmpresa;
-        this.numeroEmpleado = numeroEmpleado;
-        this.correoEmpleado = correoEmpleado;
+        setCorreoEmpresa(correoEmpresa);
+        setNumeroEmpresa(numeroEmpresa);
+        setNumeroEmpleado(numeroEmpleado);
+        setCorreoEmpleado(correoEmpleado);
     }
+
     direccion getDireccionEmpresa() {
         return direccionEmpresa;
     }

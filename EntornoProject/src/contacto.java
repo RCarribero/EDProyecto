@@ -19,7 +19,7 @@ public class contacto {
                 + ", correoElectronico=" + correoElectronico + ", fechasImportantes=" + fechasImportantes
                 + ", direccion=" + direccion + ", datosTrabajo=" + datosTrabajo + "]";
     }
-    contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, LocalDate fechasImportantes, datosTrabajo datosTrabajo, direccion direccion) {
+    contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, LocalDate fechasImportantes) {
         setNombreContacto(nombreContacto);
         setAlias(alias);
         setNumTelefono(numTelefono);

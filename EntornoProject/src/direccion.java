@@ -2,6 +2,7 @@ public class direccion {
 private int Numero_puerta;
 private String Avenida;
 private String Pueblo_Ciudad;
+
 public direccion() {
 }
 public direccion(int numero_puerta, String avenida, String pueblo_Ciudad) {
