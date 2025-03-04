@@ -30,7 +30,7 @@ public class datosTrabajo {
     }
     void setCorreoEmpresa(String correoEmpresa) {
         this.correoEmpresa = correoEmpresa;
-        if(correoEmpresa.matches("^[a-zA-Z]@[a-zA-Z].[a-z]$")){
+        if(correoEmpresa.matches("^[a-zA-Z0-9]{3,20}@[a-zA-Z]{1,5}.[a-z]{3}$")){
             System.out.println("Formato del correo de empresa correcto");
         }else{
             throw new IllegalArgumentException("Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
@@ -64,7 +64,7 @@ public class datosTrabajo {
     void setCorreoEmpleado(String correoEmpleado) {
         this.correoEmpleado = correoEmpleado;
         //MAL
-        if(correoEmpleado.matches("^[a-zA-Z]@[a-zA-Z].[a-z]$")){
+        if(correoEmpleado.matches("^[a-zA-Z0-9]{0,20}@[a-zA-Z]{0,10}.[a-z]{3}$")){
             System.out.println("Formato de Correo empleado correo");
         }else{
             throw new IllegalArgumentException("Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
