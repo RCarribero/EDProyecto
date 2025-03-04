@@ -43,16 +43,16 @@ public class gestorContactos {
 
     public static void inicializarDatosPredeterminados() {
         // Agregar direcciones predeterminadas
-        ListaDireccion.add(new direccion(101,"Avenida Principal", "Ciudad Ejemplo"));
-        ListaDireccion.add(new direccion(202,"Calle Secundaria", "Pueblo Demo"));
+        ListaDireccion.add(new direccion(50,"Avenida Principal", "Ciudad Ejemplo"));
+        ListaDireccion.add(new direccion(51,"Calle Secundaria", "Pueblo Demo"));
     
         // Agregar datos de trabajo predeterminados
-        ListaDatosTra.add(new datosTrabajo("empresa@ejemplo.com", "123456789", "50", "empleado@ejemplo.com"));
-        ListaDatosTra.add(new datosTrabajo("negocio@demo.com", "987654321", "100", "trabajador@demo.com"));
+        ListaDatosTra.add(new datosTrabajo("empresa@ejemplo.com", "123456789", "123456789", "empleado@ejemplo.com"));
+        ListaDatosTra.add(new datosTrabajo("negocio@demo.com", "987654321", "987654321", "trabajador@demo.com"));
     
         // Agregar contactos predeterminados
-        ListaContactos.add(new contacto("Juan Pérez", "JP", "111222333", "juan@example.com", LocalDate.of(1990, 5, 15)));
-        ListaContactos.add(new contacto("María López", "ML", "444555666", "maria@example.com", LocalDate.of(1985, 10, 20)));
+        ListaContactos.add(new contacto("Juan Pérez", "JPE", "111222331", "juan@example.com", LocalDate.of(1990, 5, 15)));
+        ListaContactos.add(new contacto("María López", "MLA", "444555666", "maria@example.com", LocalDate.of(1985, 10, 20)));
     }
     
 
@@ -63,6 +63,7 @@ public class gestorContactos {
             e.printStackTrace();
         }
     }
+
 
     private static void modificarContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;
