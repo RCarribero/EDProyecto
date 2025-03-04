@@ -21,7 +21,7 @@ void setNumero_puerta(int numero_puerta) {
     if(numero_puerta>0 && numero_puerta<100){
         Numero_puerta = numero_puerta;
     }else{
-        throw new IllegalArgumentException("El numero de la puerta es mayor que 100");
+        throw new IllegalArgumentException(" ❌ El numero de la puerta es mayor que 100");
     }
     
 }
@@ -32,7 +32,7 @@ void setAvenida(String avenida) {
     if(avenida.matches("^[A-Za-z\\s]{3,100}$")){
         Avenida = avenida;
     }else{
-        throw new IllegalArgumentException("la avenida contiene caracteres invalidos");
+        throw new IllegalArgumentException(" ❌ la avenida contiene caracteres invalidos");
     }
     
     
@@ -44,7 +44,7 @@ void setPueblo_Ciudad(String pueblo_Ciudad) {
     if(pueblo_Ciudad.matches("^[A-Za-z\\s]{3,50}$")){
         Pueblo_Ciudad = pueblo_Ciudad;
     }else{
-        throw new IllegalArgumentException("El nombre del pueblo o de la cuidad contiene caracteres que no tiene que contener");
+        throw new IllegalArgumentException(" ❌ El nombre del pueblo o de la cuidad contiene caracteres que no tiene que contener");
     }
 }
 
