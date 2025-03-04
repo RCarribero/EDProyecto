@@ -32,7 +32,7 @@ public class datosTrabajo {
         this.correoEmpresa = correoEmpresa;
         if(correoEmpresa.matches("^[a-zA-Z0-9]{3,20}@[a-zA-Z]{1,10}.[a-z]{3}$")){
         }else{
-            throw new IllegalArgumentException("Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
+            throw new IllegalArgumentException(" ❌ Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
         }
     }
     String getNumeroEmpresa() {
@@ -42,7 +42,7 @@ public class datosTrabajo {
         this.numeroEmpresa = numeroEmpresa;
         if(numeroEmpresa.matches("^\\d{9}$")){
         }else{
-            throw new IllegalArgumentException("Formato del Numero del empleado incorrecto, debe ser(666666666)");
+            throw new IllegalArgumentException(" ❌ Formato del Numero del empleado incorrecto, debe ser(666666666)");
         }
     }
     String getNumeroEmpleado() {
@@ -52,7 +52,7 @@ public class datosTrabajo {
         this.numeroEmpleado = numeroEmpleado;
         if(numeroEmpleado.matches("^\\d{9}$")){
         }else{
-            throw new IllegalArgumentException("Formato del Numero del empleado incorrecto, debe ser(666666666)");
+            throw new IllegalArgumentException(" ❌ Formato del Numero del empleado incorrecto, debe ser(666666666)");
         }
     }
     String getCorreoEmpleado() {
@@ -63,7 +63,7 @@ public class datosTrabajo {
         //MAL
         if(correoEmpleado.matches("^[a-zA-Z0-9]{3,20}@[a-zA-Z]{1,10}.[a-z]{3}$")){
         }else{
-            throw new IllegalArgumentException("Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
+            throw new IllegalArgumentException(" ❌ Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
         }
     }
     @Override

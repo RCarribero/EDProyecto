@@ -57,7 +57,7 @@ public class contacto {
         if(alias.matches("^[A-Za-z]{3,50}$")){
             this.alias = alias;
         }else{
-            throw new IllegalArgumentException("has puesto un alias con menos de 3 letras");
+            throw new IllegalArgumentException(" ❌ has puesto un alias con menos de 3 letras");
         }
     }
     String getNumTelefono() {
@@ -74,7 +74,7 @@ public class contacto {
             this.numTelefono = numTelefono;
             telefonoList.add(numTelefono);
         }else{
-            throw new IllegalArgumentException("has puesto un numero de telefono no valido, tiene que tener 9 caracteres");
+            throw new IllegalArgumentException(" ❌ has puesto un numero de telefono no valido, tiene que tener 9 caracteres");
         }
     }
     String getCorreoElectronico() {
@@ -84,7 +84,7 @@ public class contacto {
         if(correoElectronico.matches("^[a-zA-Z0-9]{3,20}@[a-zA-Z]{1,10}.[a-z]{3}$")){
             this.correoElectronico = correoElectronico;
         }else{
-            throw new IllegalArgumentException("El correo electronico esta mal");
+            throw new IllegalArgumentException(" ❌ El correo electronico esta mal");
         }
         
     }
