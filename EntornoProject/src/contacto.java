@@ -54,7 +54,7 @@ public class contacto {
         return alias;
     }
     void setAlias(String alias) {
-        if(alias.matches("^{3,50}$")){
+        if(alias.matches("^[A-Za-z]{3,50}$")){
             this.alias = alias;
         }else{
             throw new IllegalArgumentException("has puesto un alias con menos de 3 letras");
@@ -65,13 +65,14 @@ public class contacto {
     }
     void setNumTelefono(String numTelefono) {
         boolean verificacion=false;
-        if(telefonoList.contains(numTelefono)){
-            verificacion=true;
-        }else{
-            throw new IllegalArgumentException("EL numero de telefono ya esta en uso");
+        for (String e : telefonoList) {
+            if(e.equalsIgnoreCase(numTelefono)){
+                verificacion=true;
+            }
         }
-        if(numTelefono.matches("^[0-9]{9}")&&!verificacion){
+        if(numTelefono.matches("^\\d{9}")&&!verificacion){
             this.numTelefono = numTelefono;
+            telefonoList.add(numTelefono);
         }else{
             throw new IllegalArgumentException("has puesto un numero de telefono no valido, tiene que tener 9 caracteres");
         }
@@ -80,7 +81,12 @@ public class contacto {
         return correoElectronico;
     }
     void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+        if(correoElectronico.matches("^[A-Za-z0-9]{3,50}@[A-Za-z]{3,50}.[A-Za-z]{3,50}")){
+            this.correoElectronico = correoElectronico;
+        }else{
+            throw new IllegalArgumentException("El correo electronico esta mal");
+        }
+        
     }
     LocalDate getFechasImportantes() {
         return fechasImportantes;
