@@ -29,7 +29,6 @@ public class gestorContactos {
                     break;
                 case 5:
                     System.out.println("Gracias por usar nuestro programa");
-                    ;
                     break;
                 default:
                     throw new AssertionError();
@@ -155,6 +154,7 @@ public class gestorContactos {
         System.out.println("*****************************");
         System.out.println("Que opcion quieres elegir");
         opcion = input.nextInt();
+        input.nextLine();
     }
 
     private static void crearDireccion() {
