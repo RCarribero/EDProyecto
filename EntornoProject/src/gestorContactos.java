@@ -2,7 +2,9 @@
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class gestorContactos {
     static List<contacto> ListaContactos = new ArrayList<>();
@@ -39,18 +41,15 @@ public class gestorContactos {
                     verContactoEspecifico();
                     break;
                 case 6:
-                   mostrarTodosDatos();
-                    break;
-                case 7:
                     System.out.println("Gracias por usar nuestro programa");
                     break;
                 default:
                     throw new AssertionError();
             }
-        } while (opcion != 7);
+        } while (opcion != 6);
     }
 
-    static void inicializarDatosPredeterminados() {
+    public static void inicializarDatosPredeterminados() {
         // Agregar direcciones predeterminadas
         ListaDireccion.add(new direccion(50, "Avenida Principal", "Ciudad Ejemplo"));
         ListaDireccion.add(new direccion(51, "Calle Secundaria", "Pueblo Demo"));
@@ -66,7 +65,7 @@ public class gestorContactos {
                 LocalDate.of(1985, 10, 20), ListaDireccion.get(1), ListaDatosTra.get(1)));
     }
 
-    static void verContactoEspecifico() {
+    public static void verContactoEspecifico() {
 
         System.out.println("5️⃣  Ver contacto especifico");
         System.out.println();
@@ -87,22 +86,7 @@ public class gestorContactos {
         }
     }
 
-    static void menu() {
-        System.out.println("1️⃣  Crear direccion");
-        System.out.println("2️⃣  Crear datos de trabajo");
-        System.out.println("3️⃣  Crear nuevo contacto");
-        System.out.println("4️⃣  Modificar contacto");
-        System.out.println("5️⃣  Ver contacto especifico");
-        System.out.println("6️⃣  Mostrar todos los datos");
-        System.out.println("7️⃣  Salir");
-    }
-
-    static void Enter(Scanner scanner) {
-        System.out.println("Presiona ENTER para continuar...");
-        scanner.nextLine(); // Esperar entrada del usuario
-    }
-
-    static void clear() {
+    public static void clear() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (IOException | InterruptedException e) {
@@ -110,13 +94,13 @@ public class gestorContactos {
         }
     }
 
-    static void mostrarContacto() {
+    public static void mostrarContacto() {
         for (contacto contacto : ListaContactos) {
             System.out.println(contacto);
         }
     }
 
-    static void modificarContacto() {
+    private static void modificarContacto() {
         clear();
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
@@ -228,7 +212,16 @@ public class gestorContactos {
 
     }
 
-    static void crearDireccion() {
+    private static void menu() {
+        System.out.println("1️⃣  Crear direccion");
+        System.out.println("2️⃣  Crear datos de trabajo");
+        System.out.println("3️⃣  Crear nuevo contacto");
+        System.out.println("4️⃣  Modificar contacto");
+        System.out.println("5️⃣  Ver contacto especifico");
+        System.out.println("6️⃣  Salir");
+    }
+
+    private static void crearDireccion() {
         ListaDireccion.add(new direccion());
         String avenida, pueblo_ciudad;
         int numeroPuerta;
@@ -281,7 +274,7 @@ public class gestorContactos {
 
     }
 
-    static void crearDatosTrabajo() {
+    private static void crearDatosTrabajo() {
         String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
         boolean datosValidos;
         ListaDatosTra.add(new datosTrabajo());
@@ -356,7 +349,7 @@ public class gestorContactos {
 
     }
 
-    static void crearContacto() {
+    private static void crearContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
         boolean datosValidos = true;
@@ -454,30 +447,5 @@ public class gestorContactos {
                 datosValidos = false;
             }
         } while (!datosValidos);
-    }
-
-    static void mostrarTodosDatos(){
-        System.out.println("6️⃣  Mostrar todos los datos");
-        System.out.println();
-        System.out.println("Datos contactos🪪📞");
-        for (contacto contacto : ListaContactos) {
-            System.out.println(contacto.toString());
-        }
-
-        System.out.println();
-        
-        System.out.println("Direcciones📱");
-        for (direccion direccion : ListaDireccion) {
-            System.out.println(direccion.toString());
-        }
-       
-        System.out.println();
-
-        System.out.println("Trabajos🛠️");
-        for (datosTrabajo trabajo : ListaDatosTra) {
-            System.out.println(trabajo.toString());
-        }
-
-        Enter(input);
     }
 }
