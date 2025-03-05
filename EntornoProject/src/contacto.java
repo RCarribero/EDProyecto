@@ -132,14 +132,14 @@ public class contacto {
     void setNumTelefono(String numTelefono) {
         if(telefonoList.contains(numTelefono)){
             throw new IllegalArgumentException("El numero de telefono esta en uso");
-        }
+        }else{
         if(numTelefono.matches("^\\d{9}$")){
             this.numTelefono = numTelefono;
             telefonoList.add(numTelefono);
         }else{
-            throw new IllegalArgumentException(" ❌ has puesto un numero de telefono no valido, tiene que tener 9 caracteres");
+            throw new IllegalArgumentException(" ❌ Formato del Numero del empleado incorrecto, debe ser(123456789)");
         }
-    }
+    }}
     
     /**
      * Obtiene el correo electrónico del contacto
@@ -157,7 +157,7 @@ public class contacto {
         if(correoElectronico.matches("^[a-zA-Z0-9]{3,20}@[a-zA-Z]{1,10}.[a-z]{3}$")){
             this.correoElectronico = correoElectronico;
         }else{
-            throw new IllegalArgumentException(" ❌ El correo electronico esta mal");
+            throw new IllegalArgumentException(" ❌ Formato del correo de la empresa incorrecto, debe ser (ejemplo@dominio.es)");
         }
         
     }

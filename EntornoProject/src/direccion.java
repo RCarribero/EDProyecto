@@ -46,7 +46,7 @@ void setNumero_puerta(int numero_puerta) {
     if(numero_puerta>0 && numero_puerta<100){
         Numero_puerta = numero_puerta;
     }else{
-        throw new IllegalArgumentException(" ❌ El numero de la puerta es mayor que 100");
+        throw new IllegalArgumentException(" ❌ El numero de la puerta es incorrecto, debe estar entre (0/100)");
     }
     
 }

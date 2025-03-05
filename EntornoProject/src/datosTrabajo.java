@@ -2,11 +2,11 @@
  * Clase que representa los datos de trabajo de un contacto
  */
 public class datosTrabajo {
-    private direccion direccionEmpresa;//EMP-8888
-    private String correoEmpresa;//x@x.x
-    private String numeroEmpresa;//666666666
-    private String numeroEmpleado;//666666666
-    private String correoEmpleado;//x@x.x
+    private direccion direccionEmpresa;
+    private String correoEmpresa;
+    private String numeroEmpresa;
+    private String numeroEmpleado;
+    private String correoEmpleado;
     
     /**
      * Constructor vacío
@@ -59,10 +59,11 @@ public class datosTrabajo {
      * @param correoEmpresa correo de la empresa (formato: ejemplo@dominio.es)
      */
     void setCorreoEmpresa(String correoEmpresa) {
-        this.correoEmpresa = correoEmpresa;
+        
         if(correoEmpresa.matches("^[a-zA-Z0-9]{3,20}@[a-zA-Z]{1,10}.[a-z]{3}$")){
+        this.correoEmpresa = correoEmpresa;    
         }else{
-            throw new IllegalArgumentException(" ❌ Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
+            throw new IllegalArgumentException(" ❌ Formato del correo de la empresa incorrecto, debe ser (ejemplo@dominio.es)");
         }
     }
     
@@ -79,10 +80,11 @@ public class datosTrabajo {
      * @param numeroEmpresa número de teléfono de la empresa (9 dígitos)
      */
     void setNumeroEmpresa(String numeroEmpresa) {
-        this.numeroEmpresa = numeroEmpresa;
+        
         if(numeroEmpresa.matches("^\\d{9}$")){
+        this.numeroEmpresa = numeroEmpresa;    
         }else{
-            throw new IllegalArgumentException(" ❌ Formato del Numero del empleado incorrecto, debe ser(666666666)");
+            throw new IllegalArgumentException(" ❌ Formato del Numero del empleado incorrecto, debe ser(123456789)");
         }
     }
     
@@ -99,8 +101,9 @@ public class datosTrabajo {
      * @param numeroEmpleado número de empleado (9 dígitos)
      */
     void setNumeroEmpleado(String numeroEmpleado) {
-        this.numeroEmpleado = numeroEmpleado;
+        
         if(numeroEmpleado.matches("^\\d{9}$")){
+        this.numeroEmpleado = numeroEmpleado;    
         }else{
             throw new IllegalArgumentException(" ❌ Formato del Numero del empleado incorrecto, debe ser(666666666)");
         }
@@ -119,9 +122,9 @@ public class datosTrabajo {
      * @param correoEmpleado correo del empleado (formato: ejemplo@dominio.es)
      */
     void setCorreoEmpleado(String correoEmpleado) {
-        this.correoEmpleado = correoEmpleado;
-        //MAL
+        
         if(correoEmpleado.matches("^[a-zA-Z0-9]{3,20}@[a-zA-Z]{1,10}.[a-z]{3}$")){
+        this.correoEmpleado = correoEmpleado;    
         }else{
             throw new IllegalArgumentException(" ❌ Formato del correo de la empresa incorrecto, debe de ser (ejemplo@dominio.es)");
         }
