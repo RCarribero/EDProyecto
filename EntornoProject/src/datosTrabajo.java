@@ -132,7 +132,7 @@ public class datosTrabajo {
     
     @Override
     public String toString() {
-        return "datosTrabajo [direccionEmpresa=" + direccionEmpresa + ", correoEmpresa=" + correoEmpresa
+        return "Datos de Trabajo [ correoEmpresa=" + correoEmpresa
                 + ", numeroEmpresa=" + numeroEmpresa + ", numeroEmpleado=" + numeroEmpleado + ", correoEmpleado="
                 + correoEmpleado + "]";
     }

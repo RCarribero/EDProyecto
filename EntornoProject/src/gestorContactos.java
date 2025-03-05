@@ -261,7 +261,8 @@ public class gestorContactos {
         System.out.println("3️⃣  Crear nuevo contacto");
         System.out.println("4️⃣  Modificar contacto");
         System.out.println("5️⃣  Ver contacto especifico");
-        System.out.println("6️⃣  Salir");
+        System.out.println("6️⃣  Mostrar todos los datos");
+        System.out.println("7️⃣  Salir");
     }
 
     /**
