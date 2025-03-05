@@ -19,14 +19,14 @@ public class contacto {
                 + ", correoElectronico=" + correoElectronico + ", fechasImportantes=" + fechasImportantes
                 + ", direccion=" + direccion + ", datosTrabajo=" + datosTrabajo + "]";
     }
-    contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, LocalDate fechasImportantes) {
+    contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, LocalDate fechasImportantes, direccion direccion, datosTrabajo datostrabajo ) {
         setNombreContacto(nombreContacto);
         setAlias(alias);
-        setNumTelefono(numTelefono);
         setCorreoElectronico(correoElectronico);
         setFechasImportantes(fechasImportantes);
         setDireccion(direccion);
         setDatosTrabajo(datosTrabajo);
+        setNumTelefono(numTelefono);
     }
 
     
@@ -64,13 +64,11 @@ public class contacto {
         return numTelefono;
     }
     void setNumTelefono(String numTelefono) {
-        boolean verificacion=false;
-        for (String e : telefonoList) {
-            if(e.equalsIgnoreCase(numTelefono)){
-                verificacion=true;
-            }
+        boolean verificacion=true;
+        if(telefonoList.contains(numTelefono)){
+            throw new IllegalArgumentException("El numero de telefono esta en uso");
         }
-        if(numTelefono.matches("^\\d{9}$")&&!verificacion){
+        if(numTelefono.matches("^\\d{9}$")){
             this.numTelefono = numTelefono;
             telefonoList.add(numTelefono);
         }else{

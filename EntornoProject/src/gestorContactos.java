@@ -1,8 +1,8 @@
 //poder modificar nombre correo y telefono
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
-import java.io.IOException;
 
 public class gestorContactos {
     static List<contacto> ListaContactos = new ArrayList<>();
@@ -33,12 +33,15 @@ public class gestorContactos {
                     modificarContacto();
                     break;
                 case 5:
+                    verContactoEspecifico();
+                break;
+                case 6:
                     System.out.println("Gracias por usar nuestro programa");
-                    break;
+                break;
                 default:
                     throw new AssertionError();
             }
-        } while (opcion != 5);
+        } while (opcion != 6);
     }
 
     public static void inicializarDatosPredeterminados() {
@@ -51,11 +54,23 @@ public class gestorContactos {
         ListaDatosTra.add(new datosTrabajo("negocio@demo.com", "987654321", "987654321", "trabajador@demo.com"));
     
         // Agregar contactos predeterminados
-        ListaContactos.add(new contacto("Juan Pérez", "JPE", "111222331", "juan@example.com", LocalDate.of(1990, 5, 15)));
-        ListaContactos.add(new contacto("María López", "MLA", "444555666", "maria@example.com", LocalDate.of(1985, 10, 20)));
+        ListaContactos.add(new contacto("Juan Pérez", "JPE", "741258963", "juan@example.com", LocalDate.of(1990, 5, 15),ListaDireccion.get(0),ListaDatosTra.get(0)));
+        ListaContactos.add(new contacto("María López", "MLA", "369852147", "maria@example.com", LocalDate.of(1985, 10, 20),ListaDireccion.get(1),ListaDatosTra.get(1)));
     }
     
+    public static void verContactoEspecifico(){
 
+            System.out.println("Dime el numero de telefono que quieres ver su informacion completa: ");
+            for (contacto contacto : ListaContactos) {
+                System.out.println(contacto.getNumTelefono().toString());
+            }
+            String numMostrar=input.next();
+            for (contacto contacto : ListaContactos) {
+                if(contacto.getNumTelefono().equalsIgnoreCase(numMostrar)){
+                    System.out.println(contacto.toString());
+                }
+            }
+    }
     public static void clear() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -69,18 +84,15 @@ public class gestorContactos {
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
         boolean datosValidos = true;
-        contacto contacto2 = new contacto();
+        String numTelf ="";
         for (contacto contacto : ListaContactos) {
             System.out.println(contacto);
         }
         System.out.println("Dime el numero del contacto que quieres modificar");
-        String numTelf = input.nextLine();
+        numTelf = input.nextLine();
         for (contacto contacto : ListaContactos) {
-            if (numTelf.equalsIgnoreCase(contacto.getNumTelefono())) {
-                contacto2 = contacto;
-            }
-        }
-
+            if (contacto.getNumTelefono().equalsIgnoreCase(numTelf)) {
+                
         do {
             datosValidos = true;
             try {
@@ -90,7 +102,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el nombre del contacto");
                         nombreContacto = input.nextLine();
-                        contacto2.setNombreContacto(nombreContacto);
+                        contacto.setNombreContacto(nombreContacto);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -102,7 +114,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el alias");
                         alias = input.nextLine();
-                        contacto2.setAlias(alias);
+                        contacto.setAlias(alias);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -114,7 +126,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el numero de telefono");
                         numTelefono = input.nextLine();
-                        contacto2.setNumTelefono(numTelefono);
+                        contacto.setNumTelefono(numTelefono);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -126,7 +138,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el correoElectronico");
                         correoElectronico = input.nextLine();
-                        contacto2.setCorreoElectronico(correoElectronico);
+                        contacto.setCorreoElectronico(correoElectronico);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -139,7 +151,7 @@ public class gestorContactos {
                         System.out.println("Introduce una fecha importante");
                         fechasImportantes = input.nextLine();
                         LocalDate localDate = LocalDate.parse(fechasImportantes);
-                        contacto2.setFechasImportantes(localDate);
+                        contacto.setFechasImportantes(localDate);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -172,6 +184,9 @@ public class gestorContactos {
                 datosValidos = false;
             }
         } while (!datosValidos);
+            }
+        }
+
     }
 
     private static void menu() {
@@ -179,7 +194,8 @@ public class gestorContactos {
         System.out.println("2: Crear datos de trabajo");
         System.out.println("3: Crear nuevo contacto");
         System.out.println("4: Modificar contacto");
-        System.out.println("5: Salir");
+        System.out.println("5: Ver contacto especifico");
+        System.out.println("6: Salir");
         System.out.println("*****************************");
         System.out.println("Que opcion quieres elegir");
         opcion = input.nextInt();
