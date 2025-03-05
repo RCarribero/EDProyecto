@@ -1,8 +1,8 @@
-/**
+/*
  * Clase gestorContactos
  * 
- * Esta clase gestiona una lista de contactos, direcciones y datos de trabajo.
- * Permite crear, modificar y visualizar contactos.
+ * En esta clase tenemos todas las funciones que vamos a necesitar para llegar a crear una agenda funcional basica para:
+ * Crear, modificar y eliminar contactos
  * @author David Rodriguez, Ruben Venegas, Alejandro Vallin, Felix Venegas, Jose Luis Quevedo
  * @version 1.0
  */
@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
-/**
- * Clase principal para gestionar contactos.
+/*
+ * Clase principal para gestionar contactos
  */
 public class gestorContactos {
     static List<contacto> ListaContactos = new ArrayList<>(); // Lista de contactos
@@ -24,9 +24,9 @@ public class gestorContactos {
     static String nombreContacto, alias, numTelefono, correoElectronico; // Variables del programa
     static LocalDate fechasImportantes; // Variables del programa
 
-    /**
-     * Método principal que inicia el programa.
-    */
+    /*
+     * Metodo principal que inicia el programa
+     */
     public static void main(String[] args) {
         inicializarDatosPredeterminados();
         do {
@@ -34,25 +34,25 @@ public class gestorContactos {
             System.out.print("❇️  Opción: ");
             opcion = input.nextInt();
             input.nextLine();
-            // Switch de opciones para las opciones que queramos
+            // switch de opciones para las opciones que queramos
             switch (opcion) {
                 case 1:
-                    crearDireccion(); // Llamamos al método crearDireccion()
+                    crearDireccion(); // Llamamos al metodo crearDireccion()
                     break;
                 case 2:
-                    crearDatosTrabajo();
+                    crearDatosTrabajo();//Llamamos al metodo crearDatosTrabajo()
                     break;
                 case 3:
-                    crearContacto();
+                    crearContacto();//Llamamos al metodo crearContacto()
                     break;
                 case 4:
-                    modificarContacto();
+                    modificarContacto();//Llamamos al metodo modificarContacto()
                     break;
                 case 5:
-                    verContactoEspecifico();
+                    verContactoEspecifico();//Llamamos al verContactoEspecifico()
                     break;
                 case 6:
-                   mostrarTodosDatos();
+                    mostrarTodosDatos();//Llamamos al mostrarTodosDatos
                     break;
                 case 7:
                     System.out.println("Gracias por usar nuestro programa");
@@ -63,8 +63,10 @@ public class gestorContactos {
         } while (opcion != 7);
     }
 
-    /**
-     * Inicializa datos predeterminados para direcciones, datos de trabajo y contactos.
+    /*
+     * 
+     * Creamos las pruebas para que sea mas sencillo probar el programa
+     * 
      */
     public static void inicializarDatosPredeterminados() {
         // Agregar direcciones predeterminadas
@@ -82,8 +84,10 @@ public class gestorContactos {
                 LocalDate.of(1985, 10, 20), ListaDireccion.get(1), ListaDatosTra.get(1)));
     }
 
-    /**
-     * Muestra la información completa de un contacto específico basado en su número de teléfono.
+    /*
+     * 
+     * Muestra la informacion completa de un contacto especifico basado en su numero de telefono
+     * 
      */
     public static void verContactoEspecifico() {
         System.out.println("5️⃣  Ver contacto especifico");
@@ -104,8 +108,10 @@ public class gestorContactos {
         }
     }
 
-    /**
-     * Limpia la consola.
+    /*
+     * 
+     * Limpia la consola
+     * 
      */
     public static void clear() {
         try {
@@ -115,8 +121,15 @@ public class gestorContactos {
         }
     }
 
-    /**
-     * Muestra todos los contactos en la lista.
+    public static void Enter() {
+        System.out.println("Presiona ENTER para continuar...");
+        input.nextLine(); // Esperar entrada del usuario
+    }
+
+    /*
+     * 
+     * Muestra todos los contactos en la lista
+     * 
      */
     public static void mostrarContacto() {
         for (contacto contacto : ListaContactos) {
@@ -124,8 +137,10 @@ public class gestorContactos {
         }
     }
 
-    /**
-     * Modifica la información de un contacto existente.
+    /*
+     * 
+     * Modifica la información de un contacto que existe en la lista ListaContacto
+     * 
      */
     private static void modificarContacto() {
         clear();
@@ -237,8 +252,10 @@ public class gestorContactos {
         }
     }
 
-    /**
-     * Muestra el menú de opciones.
+    /*
+     *
+     * Muestra el menú de opciones
+     * 
      */
     private static void menu() {
         System.out.println("1️⃣  Crear direccion");
@@ -249,8 +266,10 @@ public class gestorContactos {
         System.out.println("6️⃣  Salir");
     }
 
-    /**
-     * Crea una nueva dirección y la agrega a la lista de direcciones.
+    /*
+     *
+     * Crea una nueva dirección y la agrega a la lista de direcciones
+     * 
      */
     private static void crearDireccion() {
         ListaDireccion.add(new direccion());
@@ -305,10 +324,10 @@ public class gestorContactos {
 
     }
 
-    /**
-     * Crea
- nuos
-datos de trabajo y los agrega a la lista de datos de trabajo.
+    /*
+     * 
+     * Crea nuevos datos de trabajo y los agrega a la lista de datos de trabajo
+     * 
      */
     private static void crearDatosTrabajo() {
         String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
@@ -384,8 +403,10 @@ datos de trabajo y los agrega a la lista de datos de trabajo.
         } while (!datosValidos);
     }
 
-    /**
-     * Crea un nuevo contacto y lo agrega a la lista de contactos.
+    /*
+     * 
+     * Crea un nuevo contacto y lo agrega a la lista de contactos
+     * 
      */
     private static void crearContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;
@@ -486,7 +507,11 @@ datos de trabajo y los agrega a la lista de datos de trabajo.
             }
         } while (!datosValidos);
     }
-
+/*
+ * 
+ * Muestra todos los datos de la lista contacto
+ * 
+ */
     static void mostrarTodosDatos(){
         System.out.println("6️⃣  Mostrar todos los datos");
         System.out.println();
@@ -501,7 +526,6 @@ datos de trabajo y los agrega a la lista de datos de trabajo.
         for (direccion direccion : ListaDireccion) {
             System.out.println(direccion.toString());
         }
-       
         System.out.println();
 
         System.out.println("Trabajos🛠️");
@@ -509,6 +533,6 @@ datos de trabajo y los agrega a la lista de datos de trabajo.
             System.out.println(trabajo.toString());
         }
 
-        Enter(input);
+        Enter();
     }
 }
