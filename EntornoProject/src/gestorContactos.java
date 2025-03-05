@@ -52,12 +52,15 @@ public class gestorContactos {
                     verContactoEspecifico();
                     break;
                 case 6:
+                   mostrarTodosDatos();
+                    break;
+                case 7:
                     System.out.println("Gracias por usar nuestro programa");
                     break;
                 default:
                     throw new AssertionError();
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
     }
 
     /**
@@ -482,5 +485,30 @@ datos de trabajo y los agrega a la lista de datos de trabajo.
                 datosValidos = false;
             }
         } while (!datosValidos);
+    }
+
+    static void mostrarTodosDatos(){
+        System.out.println("6️⃣  Mostrar todos los datos");
+        System.out.println();
+        System.out.println("Datos contactos🪪📞");
+        for (contacto contacto : ListaContactos) {
+            System.out.println(contacto.toString());
+        }
+
+        System.out.println();
+        
+        System.out.println("Direcciones📱");
+        for (direccion direccion : ListaDireccion) {
+            System.out.println(direccion.toString());
+        }
+       
+        System.out.println();
+
+        System.out.println("Trabajos🛠️");
+        for (datosTrabajo trabajo : ListaDatosTra) {
+            System.out.println(trabajo.toString());
+        }
+
+        Enter(input);
     }
 }
