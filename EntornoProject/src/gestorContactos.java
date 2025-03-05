@@ -28,7 +28,7 @@ public class gestorContactos {
 
     /**
      * Metodo principal que inicia el programa
-     * @param args argumentos de línea de comandos (no utilizados)
+     * @param args argumentos de línea de comandos (no utilizados).
      */
     public static void main(String[] args) {
         inicializarDatosPredeterminados();
