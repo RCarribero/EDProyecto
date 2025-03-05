@@ -110,8 +110,6 @@ public class gestorContactos {
 
     /**
      * Limpia la consola
-     * @throws IOException si ocurre un error de entrada/salida
-     * @throws InterruptedException si el proceso es interrumpido
      */
     public static void clear() {
         try {
@@ -140,7 +138,6 @@ public class gestorContactos {
 
     /**
      * Modifica la información de un contacto existente en la lista
-     * @throws IllegalArgumentException si los datos proporcionados no son válidos
      */
     private static void modificarContacto() {
         clear();
@@ -266,7 +263,6 @@ public class gestorContactos {
 
     /**
      * Crea una nueva dirección y la agrega a la lista de direcciones
-     * @throws IllegalArgumentException si los datos proporcionados no son válidos
      */
     private static void crearDireccion() {
         ListaDireccion.add(new direccion());
@@ -323,7 +319,6 @@ public class gestorContactos {
 
     /**
      * Crea nuevos datos de trabajo y los agrega a la lista
-     * @throws IllegalArgumentException si los datos proporcionados no son válidos
      */
     private static void crearDatosTrabajo() {
         String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
@@ -401,7 +396,6 @@ public class gestorContactos {
 
     /**
      * Crea un nuevo contacto y lo agrega a la lista de contactos
-     * @throws IllegalArgumentException si los datos proporcionados no son válidos
      */
     private static void crearContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;

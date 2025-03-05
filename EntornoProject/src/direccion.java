@@ -17,7 +17,6 @@ public direccion() {
  * @param numero_puerta número de la puerta (entre 1 y 99)
  * @param avenida nombre de la avenida
  * @param pueblo_Ciudad nombre del pueblo o ciudad
- * @throws IllegalArgumentException si algún parámetro no cumple con los requisitos
  */
 public direccion(int numero_puerta, String avenida, String pueblo_Ciudad) {
     setNumero_puerta(numero_puerta);
@@ -42,7 +41,6 @@ int getNumero_puerta() {
 /**
  * Establece el número de puerta
  * @param numero_puerta número de puerta (entre 1 y 99)
- * @throws IllegalArgumentException si el número es menor que 1 o mayor que 99
  */
 void setNumero_puerta(int numero_puerta) {
     if(numero_puerta>0 && numero_puerta<100){
@@ -64,7 +62,6 @@ String getAvenida() {
 /**
  * Establece el nombre de la avenida
  * @param avenida nombre de la avenida (solo letras, entre 3 y 100 caracteres)
- * @throws IllegalArgumentException si el formato no es válido
  */
 void setAvenida(String avenida) {
     if(avenida.matches("^[A-Za-z\\s]{3,100}$")){
@@ -87,7 +84,6 @@ String getPueblo_Ciudad() {
 /**
  * Establece el nombre del pueblo o ciudad
  * @param pueblo_Ciudad nombre del pueblo o ciudad (solo letras, entre 3 y 50 caracteres)
- * @throws IllegalArgumentException si el formato no es válido
  */
 void setPueblo_Ciudad(String pueblo_Ciudad) {
     if(pueblo_Ciudad.matches("^[A-Za-z\\s]{3,50}$")){

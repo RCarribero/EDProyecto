@@ -20,7 +20,6 @@ public class datosTrabajo {
      * @param numeroEmpresa número de teléfono de la empresa (9 dígitos)
      * @param numeroEmpleado número de empleado (9 dígitos)
      * @param correoEmpleado correo del empleado (formato: ejemplo@dominio.es)
-     * @throws IllegalArgumentException si algún parámetro no cumple con el formato requerido
      */
     datosTrabajo(String correoEmpresa, String numeroEmpresa, String numeroEmpleado,
             String correoEmpleado) {
@@ -58,7 +57,6 @@ public class datosTrabajo {
     /**
      * Establece el correo de la empresa
      * @param correoEmpresa correo de la empresa (formato: ejemplo@dominio.es)
-     * @throws IllegalArgumentException si el formato no es válido
      */
     void setCorreoEmpresa(String correoEmpresa) {
         this.correoEmpresa = correoEmpresa;
@@ -79,7 +77,6 @@ public class datosTrabajo {
     /**
      * Establece el número de teléfono de la empresa
      * @param numeroEmpresa número de teléfono de la empresa (9 dígitos)
-     * @throws IllegalArgumentException si el formato no es válido
      */
     void setNumeroEmpresa(String numeroEmpresa) {
         this.numeroEmpresa = numeroEmpresa;
@@ -100,7 +97,6 @@ public class datosTrabajo {
     /**
      * Establece el número de empleado
      * @param numeroEmpleado número de empleado (9 dígitos)
-     * @throws IllegalArgumentException si el formato no es válido
      */
     void setNumeroEmpleado(String numeroEmpleado) {
         this.numeroEmpleado = numeroEmpleado;
@@ -121,7 +117,6 @@ public class datosTrabajo {
     /**
      * Establece el correo del empleado
      * @param correoEmpleado correo del empleado (formato: ejemplo@dominio.es)
-     * @throws IllegalArgumentException si el formato no es válido
      */
     void setCorreoEmpleado(String correoEmpleado) {
         this.correoEmpleado = correoEmpleado;

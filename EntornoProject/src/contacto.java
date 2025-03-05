@@ -32,7 +32,6 @@ public class contacto {
      * @param fechasImportantes fechas importantes
      * @param direccion dirección del contacto
      * @param datostrabajo datos de trabajo del contacto
-     * @throws IllegalArgumentException si algún parámetro no cumple con el formato requerido
      */
     contacto(String nombreContacto, String alias, String numTelefono, String correoElectronico, LocalDate fechasImportantes, direccion direccion, datosTrabajo datostrabajo ) {
         setNombreContacto(nombreContacto);
@@ -109,7 +108,6 @@ public class contacto {
     /**
      * Establece el alias del contacto
      * @param alias alias a establecer (3-50 letras)
-     * @throws IllegalArgumentException si el alias no cumple con el formato requerido
      */
     void setAlias(String alias) {
         if(alias.matches("^[A-Za-z]{3,50}$")){
@@ -130,10 +128,8 @@ public class contacto {
     /**
      * Establece el número de teléfono del contacto
      * @param numTelefono número de teléfono a establecer (9 dígitos)
-     * @throws IllegalArgumentException si el número de teléfono no cumple con el formato requerido o ya está en uso
      */
     void setNumTelefono(String numTelefono) {
-        boolean verificacion=true;
         if(telefonoList.contains(numTelefono)){
             throw new IllegalArgumentException("El numero de telefono esta en uso");
         }
@@ -156,7 +152,6 @@ public class contacto {
     /**
      * Establece el correo electrónico del contacto
      * @param correoElectronico correo electrónico a establecer (formato válido)
-     * @throws IllegalArgumentException si el correo electrónico no cumple con el formato requerido
      */
     void setCorreoElectronico(String correoElectronico) {
         if(correoElectronico.matches("^[a-zA-Z0-9]{3,20}@[a-zA-Z]{1,10}.[a-z]{3}$")){
