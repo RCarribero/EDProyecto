@@ -1,4 +1,4 @@
-/*
+/**
  * Clase gestorContactos
  * 
  * En esta clase tenemos todas las funciones que vamos a necesitar para llegar a crear una agenda funcional basica para:
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/*
+/**
  * Clase principal para gestionar contactos
  */
 public class gestorContactos {
@@ -26,8 +26,9 @@ public class gestorContactos {
     static String nombreContacto, alias, numTelefono, correoElectronico; // Variables del programa
     static LocalDate fechasImportantes; // Variables del programa
 
-    /*
+    /**
      * Metodo principal que inicia el programa
+     * @param args argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
         inicializarDatosPredeterminados();
@@ -65,10 +66,9 @@ public class gestorContactos {
         } while (opcion != 6);
     }
 
-    /*
-     * 
-     * Creamos las pruebas para que sea mas sencillo probar el programa
-     * 
+    /**
+     * Inicializa datos predeterminados para pruebas
+     * Crea direcciones, datos de trabajo y contactos de ejemplo
      */
     public static void inicializarDatosPredeterminados() {
         // Agregar direcciones predeterminadas
@@ -86,10 +86,8 @@ public class gestorContactos {
                 LocalDate.of(1985, 10, 20), ListaDireccion.get(1), ListaDatosTra.get(1)));
     }
 
-    /*
-     * 
-     * Muestra la informacion completa de un contacto especifico basado en su numero de telefono
-     * 
+    /**
+     * Muestra la información completa de un contacto específico basado en su número de teléfono
      */
     public static void verContactoEspecifico() {
         System.out.println("5️⃣  Ver contacto especifico");
@@ -110,10 +108,10 @@ public class gestorContactos {
         }
     }
 
-    /*
-     * 
+    /**
      * Limpia la consola
-     * 
+     * @throws IOException si ocurre un error de entrada/salida
+     * @throws InterruptedException si el proceso es interrumpido
      */
     public static void clear() {
         try {
@@ -123,15 +121,16 @@ public class gestorContactos {
         }
     }
 
+    /**
+     * Pausa la ejecución hasta que el usuario presione ENTER
+     */
     public static void Enter() {
         System.out.println("Presiona ENTER para continuar...");
         input.nextLine(); // Esperar entrada del usuario
     }
 
-    /*
-     * 
+    /**
      * Muestra todos los contactos en la lista
-     * 
      */
     public static void mostrarContacto() {
         for (contacto contacto : ListaContactos) {
@@ -139,10 +138,9 @@ public class gestorContactos {
         }
     }
 
-    /*
-     * 
-     * Modifica la información de un contacto que existe en la lista ListaContacto
-     * 
+    /**
+     * Modifica la información de un contacto existente en la lista
+     * @throws IllegalArgumentException si los datos proporcionados no son válidos
      */
     private static void modificarContacto() {
         clear();
@@ -254,10 +252,8 @@ public class gestorContactos {
         }
     }
 
-    /*
-     *
-     * Muestra el menú de opciones
-     * 
+    /**
+     * Muestra el menú de opciones disponibles
      */
     private static void menu() {
         System.out.println("1️⃣  Crear direccion");
@@ -268,10 +264,9 @@ public class gestorContactos {
         System.out.println("6️⃣  Salir");
     }
 
-    /*
-     *
+    /**
      * Crea una nueva dirección y la agrega a la lista de direcciones
-     * 
+     * @throws IllegalArgumentException si los datos proporcionados no son válidos
      */
     private static void crearDireccion() {
         ListaDireccion.add(new direccion());
@@ -289,7 +284,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el pueblo o ciudad");
                         pueblo_ciudad = input.nextLine();
-                        ListaDireccion.getLast().setPueblo_Ciudad(pueblo_ciudad);
+                        ListaDireccion.get(ListaDireccion.size() - 1).setPueblo_Ciudad(pueblo_ciudad);
                     } catch (Exception e) {
                         datosValidos = false;
                         System.out.println(e);
@@ -300,7 +295,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Di la avenida");
                         avenida = input.nextLine();
-                        ListaDireccion.getLast().setAvenida(avenida);
+                        ListaDireccion.get(ListaDireccion.size() - 1).setAvenida(avenida);
                     } catch (Exception e) {
                         datosValidos = false;
                         System.out.println(e);
@@ -311,7 +306,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el numero de puerta");
                         numeroPuerta = input.nextInt();
-                        ListaDireccion.getLast().setNumero_puerta(numeroPuerta);
+                        ListaDireccion.get(ListaDireccion.size() - 1).setNumero_puerta(numeroPuerta);
                     } catch (Exception e) {
                         datosValidos = false;
                         System.out.println(e);
@@ -326,10 +321,9 @@ public class gestorContactos {
 
     }
 
-    /*
-     * 
-     * Crea nuevos datos de trabajo y los agrega a la lista de datos de trabajo
-     * 
+    /**
+     * Crea nuevos datos de trabajo y los agrega a la lista
+     * @throws IllegalArgumentException si los datos proporcionados no son válidos
      */
     private static void crearDatosTrabajo() {
         String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
@@ -346,7 +340,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el correo de la empresa");
                         correoEmpresa = input.nextLine();
-                        ListaDatosTra.getLast().setCorreoEmpresa(correoEmpresa);
+                        ListaDatosTra.get(ListaDatosTra.size() - 1).setCorreoEmpresa(correoEmpresa);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -358,7 +352,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el numero de la empresa");
                         numeroEmpresa = input.nextLine();
-                        ListaDatosTra.getLast().setNumeroEmpresa(numeroEmpresa);
+                        ListaDatosTra.get(ListaDatosTra.size() - 1).setNumeroEmpresa(numeroEmpresa);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -370,7 +364,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el numero de empleados");
                         numeroEmpleado = input.nextLine();
-                        ListaDatosTra.getLast().setNumeroEmpleado(numeroEmpleado);
+                        ListaDatosTra.get(ListaDatosTra.size() - 1).setNumeroEmpleado(numeroEmpleado);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -382,7 +376,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el correo del empleado");
                         correoEmpleado = input.nextLine();
-                        ListaDatosTra.getLast().setCorreoEmpleado(correoEmpleado);
+                        ListaDatosTra.get(ListaDatosTra.size() - 1).setCorreoEmpleado(correoEmpleado);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -405,10 +399,9 @@ public class gestorContactos {
         } while (!datosValidos);
     }
 
-    /*
-     * 
+    /**
      * Crea un nuevo contacto y lo agrega a la lista de contactos
-     * 
+     * @throws IllegalArgumentException si los datos proporcionados no son válidos
      */
     private static void crearContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;
@@ -426,7 +419,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el nombre del contacto");
                         nombreContacto = input.nextLine();
-                        ListaContactos.getLast().setNombreContacto(nombreContacto);
+                        ListaContactos.get(ListaContactos.size() - 1).setNombreContacto(nombreContacto);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -438,7 +431,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el alias");
                         alias = input.nextLine();
-                        ListaContactos.getLast().setAlias(alias);
+                        ListaContactos.get(ListaContactos.size() - 1).setAlias(alias);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -450,7 +443,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el numero de telefono");
                         numTelefono = input.nextLine();
-                        ListaContactos.getLast().setNumTelefono(numTelefono);
+                        ListaContactos.get(ListaContactos.size() - 1).setNumTelefono(numTelefono);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -462,7 +455,7 @@ public class gestorContactos {
                         datosValidos = true;
                         System.out.println("Introduce el correoElectronico");
                         correoElectronico = input.nextLine();
-                        ListaContactos.getLast().setCorreoElectronico(correoElectronico);
+                        ListaContactos.get(ListaContactos.size() - 1).setCorreoElectronico(correoElectronico);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -475,7 +468,7 @@ public class gestorContactos {
                         System.out.println("Introduce una fecha importante");
                         fechasImportantes = input.nextLine();
                         LocalDate localDate = LocalDate.parse(fechasImportantes);
-                        ListaContactos.getLast().setFechasImportantes(localDate);
+                        ListaContactos.get(ListaContactos.size() - 1).setFechasImportantes(localDate);
                     } catch (Exception e) {
                         System.out.println(e);
                         datosValidos = false;
@@ -509,11 +502,10 @@ public class gestorContactos {
             }
         } while (!datosValidos);
     }
-/*
- * 
- * Muestra todos los datos de la lista contacto
- * 
- */
+
+    /**
+     * Muestra todos los datos de la lista de contactos, direcciones y trabajos
+     */
     static void mostrarTodosDatos(){
         System.out.println("6️⃣  Mostrar todos los datos");
         System.out.println();
