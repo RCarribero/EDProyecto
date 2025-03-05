@@ -32,6 +32,7 @@ public class gestorContactos {
      */
     public static void main(String[] args) {
         inicializarDatosPredeterminados();
+        clear();
         do {
             menu();
             System.out.print("❇️  Opción: ");
