@@ -33,6 +33,7 @@ public class gestorContactos {
     public static void main(String[] args) {
         inicializarDatosPredeterminados();
         do {
+            clear();
             menu();
             System.out.print("❇️  Opción: ");
             opcion = input.nextInt();
@@ -253,6 +254,7 @@ public class gestorContactos {
      * Muestra el menú de opciones disponibles
      */
     private static void menu() {
+        System.out.println("🪪  Menu de Contactos📱📞");
         System.out.println("1️⃣  Crear direccion");
         System.out.println("2️⃣  Crear datos de trabajo");
         System.out.println("3️⃣  Crear nuevo contacto");
