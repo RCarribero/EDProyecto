@@ -39,15 +39,18 @@ public class gestorContactos {
                     verContactoEspecifico();
                     break;
                 case 6:
+                   mostrarTodosDatos();
+                    break;
+                case 7:
                     System.out.println("Gracias por usar nuestro programa");
                     break;
                 default:
                     throw new AssertionError();
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
     }
 
-    public static void inicializarDatosPredeterminados() {
+    static void inicializarDatosPredeterminados() {
         // Agregar direcciones predeterminadas
         ListaDireccion.add(new direccion(50, "Avenida Principal", "Ciudad Ejemplo"));
         ListaDireccion.add(new direccion(51, "Calle Secundaria", "Pueblo Demo"));
@@ -63,7 +66,7 @@ public class gestorContactos {
                 LocalDate.of(1985, 10, 20), ListaDireccion.get(1), ListaDatosTra.get(1)));
     }
 
-    public static void verContactoEspecifico() {
+    static void verContactoEspecifico() {
 
         System.out.println("5️⃣  Ver contacto especifico");
         System.out.println();
@@ -84,7 +87,22 @@ public class gestorContactos {
         }
     }
 
-    public static void clear() {
+    static void menu() {
+        System.out.println("1️⃣  Crear direccion");
+        System.out.println("2️⃣  Crear datos de trabajo");
+        System.out.println("3️⃣  Crear nuevo contacto");
+        System.out.println("4️⃣  Modificar contacto");
+        System.out.println("5️⃣  Ver contacto especifico");
+        System.out.println("6️⃣  Mostrar todos los datos");
+        System.out.println("7️⃣  Salir");
+    }
+
+    static void Enter(Scanner scanner) {
+        System.out.println("Presiona ENTER para continuar...");
+        scanner.nextLine(); // Esperar entrada del usuario
+    }
+
+    static void clear() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (IOException | InterruptedException e) {
@@ -92,13 +110,13 @@ public class gestorContactos {
         }
     }
 
-    public static void mostrarContacto() {
+    static void mostrarContacto() {
         for (contacto contacto : ListaContactos) {
             System.out.println(contacto);
         }
     }
 
-    private static void modificarContacto() {
+    static void modificarContacto() {
         clear();
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
@@ -210,16 +228,7 @@ public class gestorContactos {
 
     }
 
-    private static void menu() {
-        System.out.println("1️⃣  Crear direccion");
-        System.out.println("2️⃣  Crear datos de trabajo");
-        System.out.println("3️⃣  Crear nuevo contacto");
-        System.out.println("4️⃣  Modificar contacto");
-        System.out.println("5️⃣  Ver contacto especifico");
-        System.out.println("6️⃣  Salir");
-    }
-
-    private static void crearDireccion() {
+    static void crearDireccion() {
         ListaDireccion.add(new direccion());
         String avenida, pueblo_ciudad;
         int numeroPuerta;
@@ -272,7 +281,7 @@ public class gestorContactos {
 
     }
 
-    private static void crearDatosTrabajo() {
+    static void crearDatosTrabajo() {
         String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
         boolean datosValidos;
         ListaDatosTra.add(new datosTrabajo());
@@ -347,7 +356,7 @@ public class gestorContactos {
 
     }
 
-    private static void crearContacto() {
+    static void crearContacto() {
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
         boolean datosValidos = true;
@@ -445,5 +454,30 @@ public class gestorContactos {
                 datosValidos = false;
             }
         } while (!datosValidos);
+    }
+
+    static void mostrarTodosDatos(){
+        System.out.println("6️⃣  Mostrar todos los datos");
+        System.out.println();
+        System.out.println("Datos contactos🪪📞");
+        for (contacto contacto : ListaContactos) {
+            System.out.println(contacto.toString());
+        }
+
+        System.out.println();
+        
+        System.out.println("Direcciones📱");
+        for (direccion direccion : ListaDireccion) {
+            System.out.println(direccion.toString());
+        }
+       
+        System.out.println();
+
+        System.out.println("Trabajos🛠️");
+        for (datosTrabajo trabajo : ListaDatosTra) {
+            System.out.println(trabajo.toString());
+        }
+
+        Enter(input);
     }
 }
