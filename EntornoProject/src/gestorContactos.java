@@ -72,6 +72,7 @@ public class gestorContactos {
      * Crea direcciones, datos de trabajo y contactos de ejemplo
      */
     public static void inicializarDatosPredeterminados() {
+        
         // Agregar direcciones predeterminadas
         ListaDireccion.add(new direccion(50, "Avenida Principal", "Ciudad Ejemplo"));
         ListaDireccion.add(new direccion(51, "Calle Secundaria", "Pueblo Demo"));
