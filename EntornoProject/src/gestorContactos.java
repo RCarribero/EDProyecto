@@ -64,7 +64,7 @@ public class gestorContactos {
                 default:
                     throw new AssertionError();
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
     }
 
     /**
