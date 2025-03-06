@@ -32,7 +32,6 @@ public class gestorContactos {
      */
     public static void main(String[] args) {
         inicializarDatosPredeterminados();
-        clear();
         do {
             clear();
             menu();
@@ -249,6 +248,8 @@ public class gestorContactos {
                 } while (!datosValidos);
             }
         }
+        System.out.println("Contacto moodificado con exito");
+        Enter();
     }
 
     /**
@@ -269,6 +270,7 @@ public class gestorContactos {
      * Crea una nueva dirección y la agrega a la lista de direcciones
      */
     private static void crearDireccion() {
+        clear();
         ListaDireccion.add(new direccion());
         String avenida, pueblo_ciudad;
         int numeroPuerta;
@@ -318,6 +320,8 @@ public class gestorContactos {
                 datosValidos = false;
             }
         } while (!datosValidos);
+        System.out.println("Direccion creada con exito");
+        Enter();
 
     }
 
@@ -325,6 +329,7 @@ public class gestorContactos {
      * Crea nuevos datos de trabajo y los agrega a la lista
      */
     private static void crearDatosTrabajo() {
+        clear();
         String correoEmpresa, numeroEmpresa, numeroEmpleado, correoEmpleado;
         boolean datosValidos;
         ListaDatosTra.add(new datosTrabajo());
@@ -396,12 +401,15 @@ public class gestorContactos {
                 datosValidos = false;
             }
         } while (!datosValidos);
+        System.out.println("Datos recogidos con exito");
+        Enter();
     }
 
     /**
      * Crea un nuevo contacto y lo agrega a la lista de contactos
      */
     private static void crearContacto() {
+        clear();
         String nombreContacto, alias, numTelefono, correoElectronico;
         String fechasImportantes;
         boolean datosValidos = true;
@@ -499,6 +507,8 @@ public class gestorContactos {
                 datosValidos = false;
             }
         } while (!datosValidos);
+        System.out.println("Contactos creado con exito");
+        Enter();
     }
 
     /**
